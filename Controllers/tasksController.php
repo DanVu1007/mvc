@@ -1,6 +1,6 @@
 <?php
 use mvc\Core\Controller;
-
+use mvc\Models\Task;
 class tasksController extends Controller
 {
     function index()

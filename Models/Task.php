@@ -1,4 +1,5 @@
 <?php
+namespace mvc\Models;
 use mvc\Core\Model;
 use mvc\Config\Database;
 class Task extends Model

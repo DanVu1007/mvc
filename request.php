@@ -1,4 +1,5 @@
 <?php
+namespace mvc;
     class Request
     {
         public $url;
