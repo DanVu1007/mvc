@@ -1,4 +1,6 @@
 <?php
+use mvc\Core\Model;
+use mvc\Config\Database;
 class Task extends Model
 {
     public function create($title, $description)
