@@ -33,9 +33,9 @@ class tasksController extends Controller
     function edit($id)
     {
         require(ROOT . 'Models/TaskRepository.php');
-        $taskRepository = new TaskRepository();
-        $task = new TaskModel;
-        $d["task"] = $task->getId();
+        $task = new TaskRepository();
+
+        $d["task"] = $task->get($id);
 
         if (isset($_POST["title"])) {
             if ($task->edit($id, $_POST["title"], $_POST["description"])) {
