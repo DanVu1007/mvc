@@ -6,11 +6,11 @@ use mvc\Core\Model;
 
 class TaskModel extends Model
 {
-    private $id;
-    private $title;
-    private $description;
-    private $created_at;
-    private $updated_at;
+    protected $id;
+    protected $title;
+    protected $description;
+    protected $created_at;
+    protected $updated_at;
 
     /**
      * Get the value of id

@@ -1,15 +1,13 @@
 <?php
 
 use mvc\Core\Controller;
+use mvc\Models\TaskModel;
 use mvc\Models\TaskRepository;
 
 class tasksController extends Controller
 {
     function index()
     {
-
-        require(ROOT . 'Models/TaskRepository.php');
-
         $tasks = new TaskRepository;
         $d['tasks'] = $tasks->getAll();
         $this->set($d);
@@ -19,11 +17,12 @@ class tasksController extends Controller
     function create()
     {
         if (isset($_POST["title"])) {
-            require(ROOT . 'Models/TaskRepository.php');
+            $taskRepository = new TaskRepository();
+            $task = new TaskModel;
+            $task->setTitle($_POST["title"]);
+            $task->setDescription($_POST["description"]);
 
-            $task = new TaskRepository();
-
-            if ($task->add($_POST["title"], $_POST["description"])) {
+            if ($taskRepository->save($task)) {
                 header("Location: " . WEBROOT . "tasks/index");
             }
         }
@@ -34,9 +33,9 @@ class tasksController extends Controller
     function edit($id)
     {
         require(ROOT . 'Models/TaskRepository.php');
-        $task = new TaskRepository();
-
-        $d["task"] = $task->get($id);
+        $taskRepository = new TaskRepository();
+        $task = new TaskModel;
+        $d["task"] = $task->getId();
 
         if (isset($_POST["title"])) {
             if ($task->edit($id, $_POST["title"], $_POST["description"])) {

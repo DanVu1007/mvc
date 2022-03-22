@@ -16,6 +16,9 @@ class TaskRepository
     {
         return $this->resourceModel->getAll();
     }
+    public function save($model){
+        return $this->resourceModel->save($model);
+    }
     public function get($id)
     {
         return $this->resourceModel->get($id);

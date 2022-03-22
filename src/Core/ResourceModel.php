@@ -21,9 +21,49 @@ class ResourceModel implements ResourceModelInterface
     }
     public function save($model)
     {
+        //chuyển model thành arr
+        $modelProperties = $model->getProperties($model);
+        //lấy id
+        $id = $modelProperties[$this->id];
+        //bỏ id ra khỏi mảng
+        unset($modelProperties[$this->id]);
+        //thêm created hoặc updated dựa theo id
+        if ($id == null) {
+            $modelProperties['created_at'] = date('Y-m-d H:i:s');
+            if(($modelProperties['updated_at']==null)){
+                unset($modelProperties['updated_at']);
+            }
+        } else {
+            $modelProperties['updated_at'] = date('Y-m-d H:i:s');
+            if(($modelProperties['created_at']==null)){
+                unset($modelProperties['created_at']);
+            }
+        }
+        //String to request SQL
+        $stringModel = '';
+        foreach ($modelProperties as $key => $value) {
+            if (isset($value)) {
+                $stringModel .= $key . '= :' .$key. ', ';
+            }
+        }
+        $stringModel = substr($stringModel, 0, strlen($stringModel) - 2);
+
+        //set câu lệnh SQL dựa trên id
+        if ($id == null) {
+            $sql = "INSERT INTO $this->table SET $stringModel";
+        } else {
+            $sql = "UPDATE $this->table SET $stringModel WHERE `$this->id` = $id";
+        }
+        //truy vấn DB
+        $req = Database::getBdd()->prepare($sql);
+        return $req->execute($modelProperties);
     }
     public function edit($model)
     {
+        echo '<pre>';
+        print_r($model);
+        echo '</pre>';
+        // exit();
     }
     public function delete($id)
     {
