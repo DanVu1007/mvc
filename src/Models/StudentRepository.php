@@ -2,21 +2,22 @@
 
 namespace mvc\Models;
 
-use mvc\Models\TaskResourceModel;
+use mvc\Models\StudentResourceModel;
 
-class TaskRepository
+class StudentRepository
 {
     private $resourceModel;
     public function __construct()
     {
-        $this->resourceModel = new TaskResourceModel;
+        $this->resourceModel = new StudentResourceModel;
     }
 
     public function getAll()
     {
         return $this->resourceModel->getAll();
     }
-    public function save($model){
+    public function save($model)
+    {
         return $this->resourceModel->save($model);
     }
     public function get($id)

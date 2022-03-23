@@ -58,12 +58,10 @@ class ResourceModel implements ResourceModelInterface
         $req = Database::getBdd()->prepare($sql);
         return $req->execute($modelProperties);
     }
-    public function edit($id, $title, $description)
+    public function edit($id, $arrayitem)
     {
-        //tạo arr
         $modelProperties = [];
-        $modelProperties['title'] = $title;
-        $modelProperties['description'] = $description;
+        $modelProperties = array_merge($modelProperties, $arrayitem);
         $modelProperties['updated_at'] = date('Y-m-d H:i:s');
 
         //String to request SQL
@@ -84,7 +82,7 @@ class ResourceModel implements ResourceModelInterface
 
         $request = Database::getBdd()->prepare($sql);
         $request->execute();
-        header("Location: " . WEBROOT . "tasks/index");
+        header("Location: " . WEBROOT . "student/index");
     }
     public function get($id)
     {

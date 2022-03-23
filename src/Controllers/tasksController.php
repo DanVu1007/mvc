@@ -36,7 +36,10 @@ class tasksController extends Controller
 
         $d["task"] = $taskRepository->get($id);
         if (isset($_POST["title"])) {
-            if ($taskRepository->edit($id, $_POST["title"], $_POST["description"])) {
+            $arrayitem = [];
+            $arrayitem['title'] = $_POST["title"];
+            $arrayitem['description'] = $_POST["description"];
+            if ($taskRepository->edit($id, $arrayitem)) {
                 header("Location: " . WEBROOT . "tasks/index");
             }
         }
