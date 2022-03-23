@@ -27,4 +27,8 @@ class TaskRepository
     {
         return $this->resourceModel->delete($id);
     }
+    public function edit($id, $title, $description)
+    {
+        return $this->resourceModel->edit($id, $title, $description);
+    }
 }

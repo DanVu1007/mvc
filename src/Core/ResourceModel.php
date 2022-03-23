@@ -30,12 +30,12 @@ class ResourceModel implements ResourceModelInterface
         //thêm created hoặc updated dựa theo id
         if ($id == null) {
             $modelProperties['created_at'] = date('Y-m-d H:i:s');
-            if(($modelProperties['updated_at']==null)){
+            if (($modelProperties['updated_at'] == null)) {
                 unset($modelProperties['updated_at']);
             }
         } else {
             $modelProperties['updated_at'] = date('Y-m-d H:i:s');
-            if(($modelProperties['created_at']==null)){
+            if (($modelProperties['created_at'] == null)) {
                 unset($modelProperties['created_at']);
             }
         }
@@ -43,7 +43,7 @@ class ResourceModel implements ResourceModelInterface
         $stringModel = '';
         foreach ($modelProperties as $key => $value) {
             if (isset($value)) {
-                $stringModel .= $key . '= :' .$key. ', ';
+                $stringModel .= $key . '= :' . $key . ', ';
             }
         }
         $stringModel = substr($stringModel, 0, strlen($stringModel) - 2);
@@ -58,12 +58,25 @@ class ResourceModel implements ResourceModelInterface
         $req = Database::getBdd()->prepare($sql);
         return $req->execute($modelProperties);
     }
-    public function edit($model)
+    public function edit($id, $title, $description)
     {
-        echo '<pre>';
-        print_r($model);
-        echo '</pre>';
-        // exit();
+        //tạo arr
+        $modelProperties = [];
+        $modelProperties['title'] = $title;
+        $modelProperties['description'] = $description;
+        $modelProperties['updated_at'] = date('Y-m-d H:i:s');
+
+        //String to request SQL
+        $stringModel = '';
+        foreach ($modelProperties as $key => $value) {
+            if (isset($value)) {
+                $stringModel .= $key . '= :' . $key . ', ';
+            }
+        }
+        $stringModel = substr($stringModel, 0, strlen($stringModel) - 2);
+        $sql = "UPDATE $this->table SET $stringModel WHERE `$this->id` = $id";
+        $req = Database::getBdd()->prepare($sql);
+        return $req->execute($modelProperties);
     }
     public function delete($id)
     {

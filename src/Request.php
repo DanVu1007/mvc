@@ -1,13 +1,13 @@
 <?php
+
 namespace mvc;
-    class Request
+
+class Request
+{
+    public $url;
+
+    public function __construct()
     {
-        public $url;
-
-        public function __construct()
-        {
-            $this->url = $_SERVER["REQUEST_URI"];
-        }
+        $this->url = $_SERVER["REQUEST_URI"];
     }
-
-?>
+}
