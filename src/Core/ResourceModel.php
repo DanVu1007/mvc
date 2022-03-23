@@ -58,31 +58,12 @@ class ResourceModel implements ResourceModelInterface
         $req = Database::getBdd()->prepare($sql);
         return $req->execute($modelProperties);
     }
-    public function edit($id, $arrayitem)
-    {
-        $modelProperties = [];
-        $modelProperties = array_merge($modelProperties, $arrayitem);
-        $modelProperties['updated_at'] = date('Y-m-d H:i:s');
-
-        //String to request SQL
-        $stringModel = '';
-        foreach ($modelProperties as $key => $value) {
-            if (isset($value)) {
-                $stringModel .= $key . '= :' . $key . ', ';
-            }
-        }
-        $stringModel = substr($stringModel, 0, strlen($stringModel) - 2);
-        $sql = "UPDATE $this->table SET $stringModel WHERE `$this->id` = $id";
-        $req = Database::getBdd()->prepare($sql);
-        return $req->execute($modelProperties);
-    }
     public function delete($id)
     {
         $sql = "DELETE FROM $this->table WHERE `$this->id` = $id";
 
         $request = Database::getBdd()->prepare($sql);
-        $request->execute();
-        header("Location: " . WEBROOT . "student/index");
+        return $request->execute();
     }
     public function get($id)
     {

@@ -23,10 +23,6 @@ class StudentController extends Controller
             $student->setGender($_POST["gender"]);
             $student->setBirthday($_POST["birthday"]);
             $student->setAddress($_POST["address"]);
-            echo '<pre>';
-            print_r($student);
-            echo '</pre>';
-            // exit();
             if ($studentRepository->save($student)) {
                 header("Location: " . WEBROOT . "student/index");
             }
@@ -41,12 +37,13 @@ class StudentController extends Controller
 
         $d["student"] = $studentRepository->get($id);
         if (isset($_POST["name"])) {
-            $arrayitem = [];
-            $arrayitem['name'] = $_POST["name"];
-            $arrayitem['gender'] = $_POST["gender"];
-            $arrayitem['birthday'] = $_POST["birthday"];
-            $arrayitem['address'] = $_POST["address"];
-            if ($studentRepository->edit($id, $arrayitem)) {
+            $student = new StudentModel;
+            $student->setId($id);
+            $student->setName($_POST["name"]);
+            $student->setGender($_POST["gender"]);
+            $student->setBirthday($_POST["birthday"]);
+            $student->setAddress($_POST["address"]);
+            if ($studentRepository->save($student)) {
                 header("Location: " . WEBROOT . "student/index");
             }
         }

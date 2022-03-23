@@ -28,8 +28,4 @@ class StudentRepository
     {
         return $this->resourceModel->delete($id);
     }
-    public function edit($id, $arrayitem)
-    {
-        return $this->resourceModel->edit($id, $arrayitem);
-    }
 }

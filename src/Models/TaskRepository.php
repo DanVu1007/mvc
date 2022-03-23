@@ -16,7 +16,8 @@ class TaskRepository
     {
         return $this->resourceModel->getAll();
     }
-    public function save($model){
+    public function save($model)
+    {
         return $this->resourceModel->save($model);
     }
     public function get($id)
@@ -26,9 +27,5 @@ class TaskRepository
     public function delete($id)
     {
         return $this->resourceModel->delete($id);
-    }
-    public function edit($id, $arrayitem)
-    {
-        return $this->resourceModel->edit($id, $arrayitem);
     }
 }
