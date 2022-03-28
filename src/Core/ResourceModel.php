@@ -79,4 +79,11 @@ class ResourceModel implements ResourceModelInterface
         $request->execute();
         return ($request->fetchAll(PDO::FETCH_CLASS, $this->myClass));
     }
+    public function getLogin($name){
+        $sql = "SELECT * FROM $this->table WHERE `name` = '$name'";
+        $request = Database::getBdd()->prepare($sql);
+        $request->execute();
+        return ($request->fetchObject($this->myClass));
+    }
+    
 }

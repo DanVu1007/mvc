@@ -35,6 +35,11 @@
                 <a class="nav-link" href="/mvc/Student/index">Student <span class="sr-only">(current)</span></a>
             </li>
         </ul>
+        
+        <a href="/mvc/login/logout">
+            <button type="button" class="btn btn-primary">Log out</button>
+        </a>
+        
     </div>
 </nav>
 
