@@ -1,20 +1,22 @@
 <?php
 
-namespace mvc\Models;
+namespace mvc\Models\login;
 
 use mvc\Core\Model;
 
-class TaskModel extends Model
+class LoginModel extends Model
 {
     protected $id;
-    protected $title;
-    protected $description;
+    protected $name;
+    protected $password;
     protected $created_at;
     protected $updated_at;
 
+    
+
     /**
      * Get the value of id
-     */
+     */ 
     public function getId()
     {
         return $this->id;
@@ -24,7 +26,7 @@ class TaskModel extends Model
      * Set the value of id
      *
      * @return  self
-     */
+     */ 
     public function setId($id)
     {
         $this->id = $id;
@@ -33,48 +35,48 @@ class TaskModel extends Model
     }
 
     /**
-     * Get the value of title
-     */
-    public function getTitle()
+     * Get the value of name
+     */ 
+    public function getName()
     {
-        return $this->title;
+        return $this->name;
     }
 
     /**
-     * Set the value of title
+     * Set the value of name
      *
      * @return  self
-     */
-    public function setTitle($title)
+     */ 
+    public function setName($name)
     {
-        $this->title = $title;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get the value of description
-     */
-    public function getDescription()
+     * Get the value of password
+     */ 
+    public function getPassword()
     {
-        return $this->description;
+        return $this->password;
     }
 
     /**
-     * Set the value of description
+     * Set the value of password
      *
      * @return  self
-     */
-    public function setDescription($description)
+     */ 
+    public function setPassword($password)
     {
-        $this->description = $description;
+        $this->password = $password;
 
         return $this;
     }
 
     /**
      * Get the value of created_at
-     */
+     */ 
     public function getCreated_at()
     {
         return $this->created_at;
@@ -84,7 +86,7 @@ class TaskModel extends Model
      * Set the value of created_at
      *
      * @return  self
-     */
+     */ 
     public function setCreated_at($created_at)
     {
         $this->created_at = $created_at;
@@ -94,7 +96,7 @@ class TaskModel extends Model
 
     /**
      * Get the value of updated_at
-     */
+     */ 
     public function getUpdated_at()
     {
         return $this->updated_at;
@@ -104,7 +106,7 @@ class TaskModel extends Model
      * Set the value of updated_at
      *
      * @return  self
-     */
+     */ 
     public function setUpdated_at($updated_at)
     {
         $this->updated_at = $updated_at;

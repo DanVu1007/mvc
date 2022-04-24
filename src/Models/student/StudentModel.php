@@ -1,6 +1,6 @@
 <?php
 
-namespace mvc\Models;
+namespace mvc\Models\student;
 
 use mvc\Core\Model;
 

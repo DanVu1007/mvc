@@ -1,9 +1,9 @@
 <?php
 
-namespace mvc\Models;
+namespace mvc\Models\task;
 
 use mvc\Core\ResourceModel;
-use mvc\Models\TaskModel;
+use mvc\Models\task\TaskModel;
 
 class TaskResourceModel extends ResourceModel
 {

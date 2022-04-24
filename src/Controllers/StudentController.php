@@ -1,8 +1,8 @@
 <?php
 
 use mvc\Core\Controller;
-use mvc\Models\StudentModel;
-use mvc\Models\StudentRepository;
+use mvc\Models\student\StudentModel;
+use mvc\Models\student\StudentRepository;
 
 class StudentController extends Controller
 {

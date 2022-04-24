@@ -1,8 +1,8 @@
 <?php
 
-namespace mvc\Models;
+namespace mvc\Models\login;
 
-use mvc\Models\LoginResourceModel;
+use mvc\Models\login\LoginResourceModel;
 
 class LoginRepository
 {
@@ -15,9 +15,5 @@ class LoginRepository
     public function login($name)
     {
         return $this->resourceModel->getLogin($name);
-    }
-    public function logout($model)
-    {
-        return $this->resourceModel->save($model);
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace mvc\Models;
+namespace mvc\Models\student;
 
 use mvc\Core\ResourceModel;
-use mvc\Models\StudentModel;
+use mvc\Models\student\StudentModel;
 
 class StudentResourceModel extends ResourceModel
 {

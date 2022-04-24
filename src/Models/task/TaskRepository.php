@@ -1,8 +1,8 @@
 <?php
 
-namespace mvc\Models;
+namespace mvc\Models\task;
 
-use mvc\Models\TaskResourceModel;
+use mvc\Models\task\TaskResourceModel;
 
 class TaskRepository
 {

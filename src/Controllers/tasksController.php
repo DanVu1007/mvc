@@ -1,8 +1,8 @@
 <?php
 
 use mvc\Core\Controller;
-use mvc\Models\TaskModel;
-use mvc\Models\TaskRepository;
+use mvc\Models\task\TaskModel;
+use mvc\Models\task\TaskRepository;
 
 class tasksController extends Controller
 {

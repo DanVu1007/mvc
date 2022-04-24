@@ -1,9 +1,9 @@
 <?php
 
-namespace mvc\Models;
+namespace mvc\Models\login;
 
 use mvc\Core\ResourceModel;
-use mvc\Models\LoginModel;
+use mvc\Models\login\LoginModel;
 
 class LoginResourceModel extends ResourceModel
 {

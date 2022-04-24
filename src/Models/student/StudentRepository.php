@@ -1,8 +1,8 @@
 <?php
 
-namespace mvc\Models;
+namespace mvc\Models\student;
 
-use mvc\Models\StudentResourceModel;
+use mvc\Models\student\StudentResourceModel;
 
 class StudentRepository
 {
