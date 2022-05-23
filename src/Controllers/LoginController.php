@@ -34,6 +34,6 @@ class LoginController extends Controller
     function logout()
     {
         unset($_SESSION['checklogin']);
-        header("Location: " . WEBROOT . "login/login");
+        header("Location: " . WEBROOT . "Login/login");
     }
 }

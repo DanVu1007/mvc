@@ -11,7 +11,7 @@ class Router
         $url = trim($url);
         
         if ($url == "/mvc/") {
-            $request->controller = "login";
+            $request->controller = "Login";
             $request->action = "login";
             $request->params = [];
         } else if (isset($_SESSION['checklogin']) && ($_SESSION['checklogin'])==true) {
@@ -21,7 +21,7 @@ class Router
             $request->action = $explode_url[1];
             $request->params = array_slice($explode_url, 2);
         }else{
-            $request->controller = "login";
+            $request->controller = "Login";
             $request->action = "login";
             $request->params = [];
         }

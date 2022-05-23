@@ -32,11 +32,11 @@
                 <a class="nav-link" href="/mvc/tasks/index">Tasks <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/mvc/Student/index">Student <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/mvc/student/index">Student <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         
-        <a href="/mvc/login/logout">
+        <a href="/mvc/Login/logout">
             <button type="button" class="btn btn-primary">Log out</button>
         </a>
         
